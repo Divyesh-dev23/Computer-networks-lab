@@ -1,16 +1,16 @@
 import socket
 
-server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+server_socket = socket.socket(socket.AF_INET , socket.SOCK_DGRAM)
 
-server_socket.bind(("127.0.0.1", 12345))
+server_socket.bind(("127.0.0.1" , 12345))
 
-print("UDP Server is running...")
+print("UDP is runnning...")
 
 while True:
-    data, client_address = server_socket.recvfrom(1024)
+    data , client_address = server_socket.recvfrom(1024)
     message = data.decode()
-    print("Received from Client:", message)
+    print("Messaged recieved from client:",message)
 
-    uppercase_message = message.upper()
+    upper_message = message.upper()
 
-    server_socket.sendto(uppercase_message.encode(), client_address)
+    server_socket.sendto(upper_message.encode(),client_address)
